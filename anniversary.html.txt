@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 6 Month Anniversary 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #e8305a;
+    --deep-rose: #c0184a;
+    --blush: #f7c5d0;
+    --gold: #f0c060;
+    --cream: #fff5f7;
+    --dark: #1a0a10;
+  }
+
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* ── ROMANTIC BACKGROUND (shared across all pages) ── */
+  .bg {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, #6b0f2b88 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 70%, #8b1a4a77 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%, #2d0515cc 0%, transparent 80%),
+      linear-gradient(135deg, #1a0510 0%, #2e0a1a 40%, #1c0812 100%);
+  }
+  .bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(240,192,96,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(232,48,90,0.18) 0%, transparent 60%);
+  }
+
+  /* ── PAGES ── */
+  .page {
+    position: fixed; inset: 0; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 1.2s ease;
+  }
+  .page.active { opacity: 1; pointer-events: all; }
+
+  /* ── FLOATING HEARTS ── */
+  #hearts-canvas {
+    position: fixed; inset: 0; z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ══════════ PAGE 1 ══════════ */
+  .p1-inner {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeUp 1.6s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  .p1-tagline {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    opacity: 0.85;
+  }
+
+  .p1-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: #fff;
+    line-height: 1.1;
+    text-shadow:
+      0 0 40px rgba(232,48,90,0.7),
+      0 0 80px rgba(232,48,90,0.3),
+      0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 0.4rem;
+  }
+
+  .p1-sub {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.5rem, 4.5vw, 3rem);
+    color: var(--blush);
+    text-shadow: 0 0 20px rgba(232,48,90,0.5);
+    margin-bottom: 2.5rem;
+  }
+
+  .heart-divider {
+    display: flex; align-items: center; gap: 1rem;
+    justify-content: center; margin-bottom: 2.5rem;
+  }
+  .heart-divider .line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--rose)); }
+  .heart-divider .line.r { background: linear-gradient(90deg, var(--rose), transparent); }
+  .heart-divider span { color: var(--rose); font-size: 1.4rem; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+
+  .p1-message {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--blush);
+    font-style: italic;
+    margin-bottom: 3rem;
+    max-width: 480px;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .enter-btn {
+    position: relative;
+    padding: 1rem 3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+    border: none; border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 30px rgba(232,48,90,0.5), 0 0 0 1px rgba(255,255,255,0.1) inset;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .enter-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    border-radius: 50px;
+  }
+  .enter-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 40px rgba(232,48,90,0.7), 0 0 0 1px rgba(255,255,255,0.15) inset;
+  }
+  .enter-btn:active { transform: scale(0.97); }
+
+  /* ══════════ PAGE 2 – SLIDESHOW ══════════ */
+  #page2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .slideshow-wrap {
+    position: relative;
+    width: min(90vw, 540px);
+    text-align: center;
+    animation: fadeUp 1s ease both;
+  }
+
+  .slide-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--blush);
+    text-shadow: 0 0 20px rgba(232,48,90,0.5);
+    margin-bottom: 1.5rem;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 3px rgba(232,48,90,0.4),
+      0 0 0 6px rgba(240,192,96,0.15),
+      0 20px 60px rgba(0,0,0,0.6);
+    background: #1a0510;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 2;
+    border-radius: 18px;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.3);
+    pointer-events: none;
+  }
+
+  .slide-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 18px;
+  }
+  .slide-img.visible { opacity: 1; }
+
+  /* Placeholder when no real images */
+  .slide-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    padding: 2rem;
+    text-align: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    background: linear-gradient(135deg, #2d0a1a, #1a0510);
+  }
+  .slide-placeholder.visible { opacity: 1; }
+  .slide-placeholder .ph-heart { font-size: 3rem; animation: pulse 1.5s ease-in-out infinite; }
+  .slide-placeholder .ph-num {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--blush);
+  }
+
+  .slide-dots {
+    display: flex; gap: 8px; justify-content: center;
+    margin-top: 1.2rem;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .dot.active { background: var(--rose); transform: scale(1.4); }
+
+  .slide-caption {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--blush);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    margin-top: 1rem;
+    min-height: 1.5em;
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Audio notice */
+  .audio-notice {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.5rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* ══════════ PAGE 3 – FINAL MESSAGE ══════════ */
+  #page3 {
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .msg-wrap {
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .p3-crown {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+  .p3-header {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(240,192,96,0.5);
+    margin-bottom: 2rem;
+  }
+
+  .message-box {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(232,48,90,0.2);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 60px rgba(232,48,90,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+    text-align: left;
+  }
+
+  .message-box::before, .message-box::after {
+    content: '❝';
+    position: absolute;
+    font-size: 4rem;
+    color: rgba(232,48,90,0.15);
+    line-height: 1;
+  }
+  .message-box::before { top: 0.5rem; left: 1rem; }
+  .message-box::after { content: '❞'; bottom: -0.5rem; right: 1rem; }
+
+  #typewriter-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    color: #f0d8e0;
+    line-height: 1.85;
+    min-height: 8em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px; height: 1.1em;
+    background: var(--rose);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.8s step-end infinite;
+  }
+  .cursor.done { display: none; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .p3-footer {
+    margin-top: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .p3-hearts {
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    animation: pulse 1.5s ease-in-out infinite;
+    display: none;
+  }
+  .p3-sign {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--rose);
+    text-shadow: 0 0 20px rgba(232,48,90,0.4);
+    display: none;
+  }
+
+  /* ══════════ HEARTS CANVAS ══════════ */
+  /* (drawn via JS) */
+
+  /* scrollable page 3 */
+  #page3 { overflow-y: auto; padding: 3rem 2rem; }
+
+  /* responsive tweaks */
+  @media (max-width: 480px) {
+    .message-box { padding: 1.5rem 1.2rem; }
+    .p1-message { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Romantic Background -->
+<div class="bg"></div>
+
+<!-- Floating Hearts Canvas -->
+<canvas id="hearts-canvas"></canvas>
+
+<!-- ════ PAGE 1 ════ -->
+<div class="page active" id="page1">
+  <div class="p1-inner">
+    <div class="p1-tagline">✦ A special moment ✦</div>
+    <div class="p1-title">Six Months</div>
+    <div class="p1-sub">of Us 💕</div>
+
+    <div class="heart-divider">
+      <div class="line"></div>
+      <span>♥</span>
+      <div class="line r"></div>
+    </div>
+
+    <p class="p1-message">Congrats to our 6 month of togetherness</p>
+
+    <button class="enter-btn" onclick="goToPage2()">
+      Open Our Memories &nbsp;✦
+    </button>
+  </div>
+</div>
+
+<!-- ════ PAGE 2 – SLIDESHOW ════ -->
+<div class="page" id="page2">
+  <div class="slideshow-wrap">
+    <div class="slide-title">Our Beautiful Journey 📸</div>
+
+    <div class="photo-frame" id="photoFrame">
+      <!-- Add real <img> tags below like:
+           <img class="slide-img" src="photo1.jpg" alt="Us">
+           Currently showing beautiful placeholder slides -->
+
+      <img class="slide-img visible" src="photo1.jpg" alt="Us">
+<img class="slide-img" src="photo2.jpg" alt="Us">
+<img class="slide-img" src="photo3.jpg" alt="Us">
+<img class="slide-img" src="photo4.jpg" alt="Us">
+<img class="slide-img" src="photo5.jpg" alt="Us">
+<img class="slide-img" src="photo6.jpg" alt="Us">
+<img class="slide-img" src="photo7.jpg" alt="Us">
+<img class="slide-img" src="photo8.jpg" alt="Us">
+<img class="slide-img" src="photo9.jpg" alt="Us">
+<img class="slide-img" src="photo10.jpg" alt="Us">
+        <div class="ph-heart">💑</div>
+        <div class="ph-num">Photo 1</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-1">
+        <div class="ph-heart">🥰</div>
+        <div class="ph-num">Photo 2</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-2">
+        <div class="ph-heart">💏</div>
+        <div class="ph-num">Photo 3</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-3">
+        <div class="ph-heart">❤️</div>
+        <div class="ph-num">Photo 4</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-4">
+        <div class="ph-heart">💍</div>
+        <div class="ph-num">Photo 5</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-5">
+        <div class="ph-heart">🌹</div>
+        <div class="ph-num">Photo 6</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-6">
+        <div class="ph-heart">✨</div>
+        <div class="ph-num">Photo 7</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-7">
+        <div class="ph-heart">💞</div>
+        <div class="ph-num">Photo 8</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-8">
+        <div class="ph-heart">🫶</div>
+        <div class="ph-num">Photo 9</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+      <div class="slide-placeholder" id="ph-9">
+        <div class="ph-heart">💖</div>
+        <div class="ph-num">Photo 10</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem">Replace with your photo here</p>
+      </div>
+    </div>
+
+    <div class="slide-dots" id="dots"></div>
+    <div class="slide-caption" id="caption">Our first memory together…</div>
+    <div class="audio-notice">🎵 Play a romantic song in the background for the full experience</div>
+  </div>
+</div>
+
+<!-- ════ PAGE 3 – FINAL MESSAGE ════ -->
+<div class="page" id="page3">
+  <div class="msg-wrap">
+    <div class="p3-crown">👑</div>
+    <div class="p3-header">For My Babu</div>
+
+    <div class="message-box">
+      <div id="typewriter-text"><span class="cursor" id="cursor"></span></div>
+    </div>
+
+    <div class="p3-footer">
+      <div class="p3-hearts" id="p3Hearts">♥ ♥ ♥ ♥ ♥</div>
+      <div class="p3-sign" id="p3Sign">Forever yours 💕</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ AUDIO (add your song URL below) ════ -->
+<audio id="bgMusic" loop>
+ <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ══════ FLOATING HEARTS ══════ */
+const canvas = document.getElementById('hearts-canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Heart {
+  constructor() { this.reset(true); }
+  reset(init = false) {
+    this.x = Math.random() * canvas.width;
+    this.y = init ? Math.random() * canvas.height : canvas.height + 30;
+    this.size = 10 + Math.random() * 22;
+    this.speed = 0.5 + Math.random() * 1.2;
+    this.opacity = 0.15 + Math.random() * 0.55;
+    this.drift = (Math.random() - 0.5) * 0.8;
+    this.wobble = Math.random() * Math.PI * 2;
+    this.wobbleSpeed = 0.02 + Math.random() * 0.03;
+    this.hue = 340 + Math.random() * 30; // rose/pink range
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.opacity;
+    ctx.fillStyle = `hsl(${this.hue}, 80%, 60%)`;
+    ctx.shadowColor = `hsl(${this.hue}, 80%, 60%)`;
+    ctx.shadowBlur = 12;
+    const s = this.size / 10;
+    ctx.translate(this.x, this.y);
+    ctx.scale(s, s);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-5, -5, -10, 0, 0, 7);
+    ctx.bezierCurveTo(10, 0, 5, -5, 0, 0);
+    ctx.fill();
+    ctx.restore();
+  }
+  update() {
+    this.wobble += this.wobbleSpeed;
+    this.x += this.drift + Math.sin(this.wobble) * 0.5;
+    this.y -= this.speed;
+    if (this.y < -40) this.reset();
+  }
+}
+
+const hearts = Array.from({ length: 55 }, () => new Heart());
+
+function animateHearts() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  hearts.forEach(h => { h.update(); h.draw(); });
+  requestAnimationFrame(animateHearts);
+}
+animateHearts();
+
+/* ══════ PAGE NAVIGATION ══════ */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goToPage2() {
+  showPage('page2');
+  startSlideshow();
+  // Try to play music
+  const music = document.getElementById('bgMusic');
+  if (music.src) music.play().catch(() => {});
+}
+
+/* ══════ SLIDESHOW ══════ */
+const TOTAL_SLIDES = 10;
+const SLIDE_DURATION = 1500; // ms per slide → 10 × 1.5s = 15s total
+
+const CAPTIONS = [
+  "Our first memory together… 💑",
+  "Every moment with you is magic ✨",
+  "Six months of beautiful chaos 💕",
+  "You make my world so much better 🌹",
+  "Here's to forever, my love 💍",
+  "My favourite person in the world 🥰",
+  "Us against everything 💏",
+  "Thank you for choosing me ❤️",
+  "Every day better than the last 🫶",
+  "And this is just the beginning… 💖"
+];
+
+let currentSlide = 0;
+let slideshowTimer = null;
+
+function buildDots() {
+  const dotsEl = document.getElementById('dots');
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < TOTAL_SLIDES; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    dotsEl.appendChild(d);
+  }
+}
+
+function showSlide(idx) {
+  // Hide all placeholders / images
+  for (let i = 0; i < TOTAL_SLIDES; i++) {
+    const ph = document.getElementById('ph-' + i);
+    if (ph) ph.classList.remove('visible');
+    const img = document.querySelectorAll('.slide-img')[i];
+    if (img) img.classList.remove('visible');
+  }
+
+  // Show current
+  const ph = document.getElementById('ph-' + idx);
+  if (ph) ph.classList.add('visible');
+  const img = document.querySelectorAll('.slide-img')[idx];
+  if (img) img.classList.add('visible');
+
+  // Update dots
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.classList.toggle('active', i === idx);
+  });
+
+  // Caption
+  const cap = document.getElementById('caption');
+  cap.style.opacity = 0;
+  setTimeout(() => {
+    cap.textContent = CAPTIONS[idx] || '';
+    cap.style.opacity = 1;
+  }, 300);
+}
+
+function startSlideshow() {
+  buildDots();
+  showSlide(0);
+  currentSlide = 0;
+
+  slideshowTimer = setInterval(() => {
+    currentSlide++;
+    if (currentSlide >= TOTAL_SLIDES) {
+      clearInterval(slideshowTimer);
+      // Go to final page after a brief pause
+      setTimeout(() => goToPage3(), 1200);
+      return;
+    }
+    showSlide(currentSlide);
+  }, SLIDE_DURATION);
+}
+
+/* ══════ PAGE 3 + TYPEWRITER ══════ */
+const FULL_MESSAGE = `Congrats babu, i know maine tumko koi aur nickname nhi diya kyunki yahi bulana accha lgta h but hn congrats humne finally 6 months complete kar liye and maze ki baat batata hun ki abhi jab mai yeh bana raha hun tab humare 5 months bhi complete nhi hue h but mai confident hun ki humare 6 months pakka complete honge..
+
+humlog yaha tak lad jhagad ke ek dusre ko support krke and hn bahut sare unholy chiz krte hue yaha tak pahuch gye h and ofcourse hum aage bhi aise hi chalte rahenge, aur jyada kuch toh nhi bolna h but itna promise krta hun ki agar tumney last tak mera saath diya to humari shaadi pakki hogi iska mai gurantee leta hun,
+
+BTW I love you so much baby and i will love you forever my darling and HAPPY 6 MONTH ANNIVERSARY 💕`;
+
+function goToPage3() {
+  showPage('page3');
+  setTimeout(() => startTypewriter(), 600);
+}
+
+function startTypewriter() {
+  const el = document.getElementById('typewriter-text');
+  const cursor = document.getElementById('cursor');
+  el.innerHTML = '';
+  el.appendChild(cursor);
+
+  let charIdx = 0;
+  const chars = [...FULL_MESSAGE]; // unicode-safe split
+
+  function type() {
+    if (charIdx >= chars.length) {
+      cursor.classList.add('done');
+      document.getElementById('p3Hearts').style.display = 'block';
+      document.getElementById('p3Sign').style.display = 'block';
+      return;
+    }
+
+    const ch = chars[charIdx++];
+    const textNode = document.createTextNode(ch === '\n' ? '' : ch);
+
+    if (ch === '\n') {
+      el.insertBefore(document.createElement('br'), cursor);
+      el.insertBefore(document.createElement('br'), cursor);
+    } else {
+      el.insertBefore(textNode, cursor);
+    }
+
+    // Vary typing speed for natural feel
+    const delay = ch === '.' || ch === ',' ? 80 : ch === ' ' ? 35 : 28 + Math.random() * 20;
+    setTimeout(type, delay);
+  }
+
+  type();
+}
+</script>
+</body>
+</html>
